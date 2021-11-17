@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio | Jerry Bodam</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+section {
+    padding: 100px;
+}
+.banner {
+    position: relative;
+    min-height: 100vh;
+    background: url(/assets/bg.jpeg);
+    background-size: cover;
+    background-position: right;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.banner h2 {
+    font-size: 3em;
+    color: #fff;
+    font-weight: 500;
+    line-height: 1.5em;
+}
+
+.banner h2 span {
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.banner h3 {
+    font-size: 1.5em;
+    color: #fff;
+    font-weight: 500;
+}
+
+.btn {
+    position: relative;
+    background: #2196f3;
+    display: inline-block;
+    color: #fff;
+    margin-top: 20px;
+    padding: 10px 30px;
+    font-size: 18px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 100px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: 0.5s;
+}
+
+header.sticky {
+    background: #fff;
+    padding: 20px 100px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1)
+}
+header .logo {
+    color: #fff;
+    font-size: 24px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+header.sticky .logo {
+    color: #111;
+}
+header ul {
+    position: relative;
+    display: flex;
+}
+
+header ul li {
+    position: relative;
+    list-style: none;
+}
+
+header ul li a {
+    position: relative;
+    display: inline-block;
+    margin: 0 15px;
+    color: #fff;
+    text-decoration: none;
+}
+
+header.sticky ul li a {
+    color: #111;
+}
+.heading {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #111;
+}
+.heading h2 {
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contentBx {
+    padding-right: 30px;
+}
+
+.contentBx h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.w50 {
+    min-width: 50%;
+}
+
+img {
+    max-width: 100%;
+}
+
+.services {
+    background: #111;
+}
+
+.heading.white {
+    color: #fff;
+}
+
+.services .content{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.services .content .servicesBx {
+    padding: 40px 20px;
+    background: #222;
+    color: #fff;
+    max-width: 340px;
+    margin: 20px;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.services .content .servicesBx:hover {
+    background: #2196f3;
+}
+
+.services .content .servicesBx img {
+    max-width: 80px;
+    filter: invert(1);
+}
+
+.services .content .servicesBx h2 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.work .content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.work .content .workBx {
+    width: 50%;
+    padding: 20px;
+}
+
+.work .content .workBx img {
+    max-width: 100%;
+}
+
+.testimonial {
+    background: #f7f7f7;
+}
+
+.testimonial .content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.testimonial .content .testimonialBx {
+    max-width: calc(50% - 40px);
+    padding: 60px 40px;
+    margin: 20px;
+    background: #2196f3;
+}
+
+.testimonial .content .testimonialBx p {
+    color: #fff;
+    font-style: italic;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.testimonial .content .testimonialBx h3 {
+    margin-top: 40px;
+    text-align: end;
+    color: #fff;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1em;
+}
+
+.testimonial .content .testimonialBx h3 span {
+    font-size: 14px;
+    font-weight: 400;
+}
+.contact {
+    background: #111;
+
+}
+.formBx {
+    min-width: 60%;
+}
+.formBx form {
+    display: flex;
+    flex-direction: column;
+}
+.formBx form h3,
+.contactInfo h3 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.formBx form input,
+.formBx form textarea {
+    margin-bottom: 20px;
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    background: #222;
+    color: #fff;
+    resize: none;
+}
+.formBx form textarea {
+    min-height: 200px;
+}
+.formBx form input::placeholder,
+.formBx form textarea::placeholder {
+    color: #999
+}
+.formBx form input[type="submit"] {
+    max-width: 100px;
+    background: #2196f3;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+}
+
+.contactInfo {
+    min-width: 40%;
+}
+.contactInfoBx {
+    position: relative;
+}
+.contactInfoBx .box {
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+}
+
+.contactInfoBx .box .icon {
+    min-width: 40px;
+    padding-top: 4px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 24px;
+}
+
+.contactInfoBx .box .text {
+    display: flex;
+    margin-left: 20px;
+    font-size: 16px;
+    color: #fff;
+    flex-direction: column;
+    font-weight: 300
+}
+
+.contactInfoBx .box .text h3 {
+    font-weight: 500;
+    color: #2196f3;
+    margin-bottom: 0;
+}
+.copyright {
+    background: #000;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+/*Responsive*/
+@media (max-width: 991px) {
+    header,
+    header.sticky {
+        padding: 20px 50px;
+        z-index: 1000;
+    }
+    .mmenu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: block;
+        padding: 100px 50px;
+        text-align: cneter;
+        width: 100%;
+        height: 100vh;
+        background: #fff;
+        transition: 0.5s;
+        z-index: 999;
+        border-top: 1px solid
+    }
+}
+    </style>
+</head>
+<body>
+<header>
+    <a heref="#" class="logo">Portfolio</a>
+    <div class="toggle"></div>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#testimonial">Testimonial</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</header>
+<section class="banner" id="home">
+    <div class="textBx">
+        <h2>Hi, I'm<br><span>Jerry Bodam.</span></h2>
+        <h3>I'm a Web Developer, Data Analyst and Researcher</h3>
+        <a href="#about" class="btn">About Me</a>
+    </div>
+</section>
+<section class="about" id="about">
+    <div class="heading">
+        <h2>About Me</h2>
+    </div>
+    <div class="content">
+        <div class="contentBx w50">
+            <h3>I'm a Web Developer, Data Analyst and Researcher</h3>
+            <p>A passionate learner, enthusuatic about the acquisition and application of skills in developing
+                innovative solutions to solving problems.<br>
+
+                Experienced in web development and web designing with Wordpress, HTML, CSS and JavaScript. Adept in the management of
+                Google Cloud Platform, Google Analytics Console, Google Search Console and Dash Cloudfare for
+                web hosting, digital marketing, search engine optimization and content delivery respectively.<br><br>
+
+                Proficient in the use of SPSS, Eviews and Stata for trend, descriptive and regression analysis
+                of non-time series data and time series data. Also skilled in bank reconciliation, basic
+                fundamental and technical analysis of public equities.<br><br>
+                Presently a Full Java Stack Developer trainee at the elite Decagon Institute of Software Engineering
+                and leadership training.</p>
+        </div>
+        <div class="w50">
+            <img src="assets/bg.jpeg" class="img">   <!--/ Image distors display, address later /-->
+        </div>
+    </div>
+</section>
+<!--/ Check if this script is relevant/delete if not/check how to invoke jquery-->
+<section class="services" id="services">
+    <div class="heading white">
+        <h2>Our Services</h2>
+        <p>My services includes the following</p>
+    </div>
+    <div class="content">
+        <div class="servicesBx">
+            <img src="assets/coding.png">
+            <h2>Web Development</h2>
+            <p>Front-end development with HTML, CSS, JavaScript and Wordpress. Building actual interface
+                for user interaction with websites.</p>
+        </div>
+        <div class="servicesBx">
+            <img src="assets/bg.jpeg">
+            <h2>Web Design</h2>
+            <p>Creating and designing the layout and user experience of websites and web pages. Remodelling
+                and updating of already existing websites and web pages.</p>
+        </div>
+        <div class="servicesBx">
+            <img src="assets/bg.jpeg">
+            <h2>Research Services</h2>
+            <p>Descriptive, Trend and Regression analysis of non-time series and time series data
+                with the aid of statistical tools. Fundamental and technical analysis of public equities.
+                Research writing.</p>
+        </div>
+        <div class="servicesBx">
+            <img src="assets/bg.jpeg">
+            <h2>Content Writing</h2>
+            <p>Planning, writing and editing web content for blog posts, articles, scripts, web pages,
+                journals and other platforms.</p>
+        </div>
+        <div class="servicesBx">
+            <img src="assets/bg.jpeg">
+            <h2>Digital Msrketing</h2>
+            <p>Leveraging websites, search engines, blogs, social media, video, email and similar
+                channels to reach customers and generate sales or increase other action calls.</p>
+        </div>
+    </div>
+</section>
+<section class="work" id="work">
+    <div class="heading">
+        <h2>Our latest Works</h2>
+        <p>Some of our latest jobs include the following</p>
+    </div>
+    <div class="content">
+        <div class="workBx">
+            <img src="assets/bg.jpeg">
+        </div>
+        <div class="workBx">
+            <img src="assets/work-1.jpg">
+        </div>
+        <div class="workBx">
+            <img src="assets/work-3.jpg">
+        </div>
+        <div class="workBx">
+            <img src="assets/work-4.jpg">
+        </div>
+    </div>
+    <div class="heading">
+        <a href="#" class="btn">View More</a>
+    </div>
+</section>
+<section class="testimonial" id="testimonial">
+    <div class="heading">
+        <h2>Testimonial</h2>
+        <p>What some of our clients had to say about us</p>
+    </div>
+    <div class="content">
+        <div class="testimonialBx">
+            <p>He's quite professional, adheres strictly to deadlines and does quality jobs.</p>
+            <h3>Raymond Amang<br><span>Business Manager</span></h3>
+        </div>
+        <div class="testimonialBx">
+            <p>His websites are quite simple but yet stylish, looking forward to repeat business.</p>
+            <h3>Beyummi Mohammed<br><span>Network Systems Engineer</span></h3>
+        </div>
+    </div>
+</section>
+<section class="contact" id="contact">
+    <div class="heading white">
+        <h2>Contact Us</h2>
+        <p>For further enquiry with regards to our services, you can reach us via</p>
+    </div>
+    <div class="content">
+        <div class="contactInfo">
+            <h3>Contact Info</h3>
+            <div class="contactInfoBx"></div>
+            <div class="box">
+                <div class="icon">
+                    <i class="fa fa-map-marker"></i>
+                </div>
+                <div class="text">
+                    <h3>Address</h3>
+                    <p>No. 7, Ajason Way, <br>Eti Osa, Sangotedo, <br>Lagos, <br>106104</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="icon">
+                    <i class="fa fa-phone"></i>
+                </div>
+                <div class="text">
+                    <h3>Phone</h3>
+                    <p>(+234) 818 869 3160</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="icon">
+                    <i class="fa fa-envelope-o"></i>
+                </div>
+                <div class="text">
+                    <h3>Email</h3>
+                    <p>bodam.jerry@decagon.dev<br>bodambest@yahoo.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="formBx">
+            <form>
+                <h3>Message Me</h3>
+                <input type="text" name="" placeholder="Full Name">
+                <input type="email" name="" placeholder="Email">
+                <textarea placeholder="Your Message"></textarea>
+                <input type="submit" value="Send">
+            </form>
+        </div>
+    </div>
+</section>
+<div class="copyright">
+    <p>Copyright 2021 Jerry Bodam. All Rights Reserved</p>
+</div>
+<script type="text/javascript">
+        window.addEventListener('scroll', function(){
+            var header = document.querySelector('header');
+            header.classlist.toggle('sticky', window.scrollY > 0);
+        });
+        </script>
+</body>
+</html>
