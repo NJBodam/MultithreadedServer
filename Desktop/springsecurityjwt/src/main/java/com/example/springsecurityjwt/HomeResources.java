@@ -10,10 +10,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class HomeResources {
@@ -32,7 +29,7 @@ public class HomeResources {
         return "Hello World";
     }
 
-    @PostMapping("/authenticate")
+    @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticateRequest authenticateRequest) throws Exception {
         try {
             authenticationManager.authenticate(
@@ -53,4 +50,4 @@ instance of autehnticateRequest from the client, a payload which contains the us
 used authentication manager in order to authenticate the username and password passed in. If it fails to
 authenticate, it throws an exception. If it authenticates, we create jwt token from the username. The jwt token
 needs the userdetails to create a jwt. Then we put that in an authentication response and send back
- */
+*/

@@ -1,6 +1,8 @@
 package com.example.springsecurityjwt.models;
 
-public class AuthenticateRequest {
+import java.io.Serializable;
+
+public class AuthenticateRequest implements Serializable {
     private String username;
     private String password;
 

@@ -1,6 +1,8 @@
 package com.example.springsecurityjwt.models;
 
-public class AuthenticateResponse  {
+import java.io.Serializable;
+
+public class AuthenticateResponse implements Serializable {
 
     private final String jwt;
 
