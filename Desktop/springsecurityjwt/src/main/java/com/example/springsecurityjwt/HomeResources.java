@@ -24,7 +24,7 @@ public class HomeResources {
     @Autowired
     private MyUserDetailsService userDetailsService;
 
-    @RequestMapping("/hello")
+    @RequestMapping(value = "/hello", method = RequestMethod.POST)
     public String hello() {
         return "Hello World";
     }
